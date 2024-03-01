@@ -1,11 +1,11 @@
+import { AppRoutes } from "./Routes/AppRoutes";
 import "./App.css";
 
-function App() {
+export function App() {
   return (
     <>
       <h1>MARVEL</h1>
+      <AppRoutes />
     </>
   );
 }
-
-export default App;
