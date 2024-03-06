@@ -1,0 +1,14 @@
+@import "variables";
+
+@mixin border-left {
+  border-left: 1px solid $border-black;
+}
+@mixin border-right {
+  border-right: 1px solid $border-black;
+}
+
+@mixin wrapper-flex($align-items) {
+  height: 60px;
+  display: flex;
+  align-items: $align-items;
+}

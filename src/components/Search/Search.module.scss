@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.search {
+  @include wrapper-flex(center);
+  @include border-left;
+  @include border-right;
+
+  width: 30vw;
+  min-width: 250px;
+  position: relative;
+  color: $gray-text;
+  font-size: 14px;
+
+  .icon {
+    position: absolute;
+    left: 34px;
+    top: 23px;
+  }
+
+  .input {
+    width: 100%;
+    padding: 5px 42px;
+    margin: 0 25px;
+    border: $border-black;
+    border-radius: 5px;
+    color: $gray-text;
+    background-color: $black-light;
+    transition: color 0.2s ease-in;
+
+    &:focus {
+      outline: 1px solid $gray-text;
+    }
+  }
+
+  .iconClose {
+    position: absolute;
+    right: 34px;
+    top: 23px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,29 @@
+@import "normalize";
+@import "fonts";
+@import "variables";
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  outline: none;
+  font-family: "Nunito", Roboto, system-ui, Tahoma, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+}
+
+.container {
+  width: calc(100vw - 100px);
+  margin: 0 auto;
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
