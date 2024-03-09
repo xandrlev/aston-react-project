@@ -1,6 +1,9 @@
 # MARVEL HEROES GALLERY
 
+[![example workflow](https://github.com/xandrlev/aston-react-project/actions/workflows/cdci.yml/badge.svg)](https://github.com/xandrlev/aston-react-project/actions) [![Netlify Status](https://api.netlify.com/api/v1/badges/bb393d79-a0be-4a50-b12b-ae7a722ca5f4/deploy-status)](https://app.netlify.com/sites/marvelsheroes/deploys)
+
 - Использованное API: [MARVEL API](https://developer.marvel.com/)
+- Деплой: [marvelsheroes.netlify.app](https://marvelsheroes.netlify.app/)
 
 ---
 
@@ -35,3 +38,4 @@
 ## 2 уровень (необязательный)
 
 - [ ] Используется TypeScript
+- [ ] Настроен CI/CD
