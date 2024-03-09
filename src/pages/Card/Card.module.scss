@@ -1,58 +1,74 @@
 @import "../../styles/variables";
 
-.card {
-  padding: 30px 0;
+.container {
+  width: calc(100vw - 100px);
+  margin: 0 auto;
+  padding: 0 25px;
   display: flex;
-  gap: 0 35px;
+  flex-direction: column;
 
-  .image {
-    height: clamp(15.625rem, 11.2331rem + 18.018vw, 28.125rem);
-    object-fit: cover;
-    object-position: top;
-  }
-
-  .wrapper {
+  .card {
+    padding: 30px 0;
     display: flex;
-    flex-direction: column;
-    color: $black;
+    gap: 0 35px;
 
-    &_title {
+    .image {
+      height: clamp(15.625rem, 11.2331rem + 18.018vw, 28.125rem);
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .wrapper {
+      width: 100%;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 50px;
+      flex-direction: column;
+      color: $black;
 
-      .favorite {
-        font-size: 24px;
-        color: $red;
-        cursor: pointer;
-        transition: 0.05s all ease-in;
+      &_title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
 
-        &:hover {
-          color: $red-dark;
+        .favorite {
+          font-size: 24px;
+          color: $red;
+          cursor: pointer;
+          transition: 0.05s all ease-in;
+
+          &:hover {
+            color: $red-dark;
+          }
         }
       }
-    }
 
-    .description {
-      padding-bottom: 20px;
-      margin: 0;
-      // text-indent: 2rem;
-    }
+      .description {
+        padding-bottom: 20px;
+        margin: 0;
+        // text-indent: 2rem;
+      }
 
-    .button {
-      width: 165px;
-      padding: 15px 0;
-      border: none;
-      font-weight: 900;
-      background-color: $red;
-      color: $white;
-      cursor: pointer;
-      transition: 0.05s all ease-in;
-      clip-path: polygon(10% 0%, 100% 0%, 100% 60%, 90% 100%, 0% 100%, 0% 40%);
+      .button {
+        width: 165px;
+        padding: 15px 0;
+        border: none;
+        font-weight: 900;
+        background-color: $red;
+        color: $white;
+        cursor: pointer;
+        transition: 0.05s all ease-in;
+        clip-path: polygon(
+          10% 0%,
+          100% 0%,
+          100% 60%,
+          90% 100%,
+          0% 100%,
+          0% 40%
+        );
 
-      &:hover {
-        background-color: $red-dark;
+        &:hover {
+          background-color: $red-dark;
+        }
       }
     }
   }

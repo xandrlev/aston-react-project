@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import heroesSlice from "./slices/heroesSlice";
+import { heroesApi } from "./api/heroesApi";
 
 export const store = configureStore({
   reducer: {
-    heroes: heroesSlice,
+    [heroesApi.reducerPath]: heroesApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(heroesApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

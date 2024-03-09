@@ -1,28 +1,20 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 
 import { Link } from "react-router-dom";
 
-import { useActions } from "../../hooks/useActions";
-import { useAppSelector } from "../../hooks/useAppSelector";
+import Spinner from "../../components/spinner/Spinner";
+import { useGetHeroesQuery } from "../../store";
 
 import styles from "./Home.module.scss";
 
 export const Home: FC = () => {
-  const { heroes, status } = useAppSelector((state) => state.heroes);
-
-  const { fetchHeroes } = useActions();
-
-  useEffect(() => {
-    fetchHeroes();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { data, isLoading } = useGetHeroesQuery("");
 
   return (
     <div className="container">
-      {status === "loading" && <h2>Loading...</h2>}
-
+      {isLoading && <Spinner />}
       <ul className={styles.list}>
-        {heroes.map((item) => (
+        {data?.data.results.map((item) => (
           <li key={item.id}>
             <Link className={styles.card} to={`${item.id}`}>
               <img
