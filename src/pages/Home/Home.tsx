@@ -1,31 +1,28 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
-import { fetchTypes } from "../../types/fetchTypes";
+import { useActions } from "../../hooks/useActions";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 import styles from "./Home.module.scss";
 
 export const Home: FC = () => {
-  const BASE_URL: string = import.meta.env.VITE_BASE_URL;
-  const API_KEY: string = import.meta.env.VITE_API_KEY;
-  const API_HASH: string = import.meta.env.VITE_HASH;
-  const URL = `${BASE_URL}?&limit=50&offset=82&ts=1&apikey=${API_KEY}&hash=${API_HASH}`;
+  const { heroes, status } = useAppSelector((state) => state.heroes);
 
-  const [items, setItems] = useState<fetchTypes[]>([]);
+  const { fetchHeroes } = useActions();
 
   useEffect(() => {
-    fetch(URL)
-      .then((res) => res.json())
-      .then((data) => setItems(data.data.results))
-      // eslint-disable-next-line no-console
-      .catch((e) => console.error(e));
-  }, [URL]);
+    fetchHeroes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="container">
+      {status === "loading" && <h2>Loading...</h2>}
+
       <ul className={styles.list}>
-        {items.map((item) => (
+        {heroes.map((item) => (
           <li key={item.id}>
             <Link className={styles.card} to={`${item.id}`}>
               <img

@@ -7,7 +7,7 @@ import { Search } from "../Search";
 import styles from "./Header.module.scss";
 
 export const Header: FC = () => (
-  <div className={styles.header}>
+  <header className={styles.header}>
     <div className={styles.container}>
       <div className={styles.logo}>
         <Link to="/">
@@ -30,5 +30,5 @@ export const Header: FC = () => (
         </div>
       </div>
     </div>
-  </div>
+  </header>
 );

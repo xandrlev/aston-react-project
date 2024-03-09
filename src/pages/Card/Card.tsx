@@ -1,27 +1,24 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { fetchTypes } from "../../types/fetchTypes";
+import { useActions } from "../../hooks/useActions";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 import styles from "./Card.module.scss";
 
 export const Card: FC = () => {
-  const [item, setItem] = useState<fetchTypes>();
+  const { heroes } = useAppSelector((state) => state.heroes);
+  const { fetchHeroes } = useActions();
   const { id } = useParams();
   const navigate = useNavigate();
-  const BASE_URL: string = import.meta.env.VITE_BASE_URL;
-  const API_KEY: string = import.meta.env.VITE_API_KEY;
-  const API_HASH: string = import.meta.env.VITE_HASH;
-  const URL = `${BASE_URL}/${id}?&ts=1&apikey=${API_KEY}&hash=${API_HASH}`;
+
+  const item = heroes[0];
 
   useEffect(() => {
-    fetch(URL)
-      .then((res) => res.json())
-      .then((data) => setItem(data.data.results[0]))
-      // eslint-disable-next-line no-console
-      .catch((e) => console.error(e));
-  }, [URL]);
+    fetchHeroes(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   return (
     <div className={"container"}>

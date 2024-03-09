@@ -1,3 +1,10 @@
+export interface fetchData {
+  offset: number;
+  limit: number;
+  total: number;
+  results: fetchTypes;
+}
+
 export interface fetchTypes {
   id: number;
   name: string;
