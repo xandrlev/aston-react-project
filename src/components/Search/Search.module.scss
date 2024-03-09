@@ -14,29 +14,40 @@
 
   .icon {
     position: absolute;
-    left: 34px;
+    right: 34px;
     top: 23px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+
+    &:hover {
+      scale: 1.2;
+    }
   }
 
   .input {
     width: 100%;
-    padding: 5px 42px;
+    padding: 5px 60px 5px 15px;
     margin: 0 25px;
     border: $border-black;
-    border-radius: 5px;
+    border-radius: 3px;
     color: $gray-text;
     background-color: $black-light;
-    transition: color 0.2s ease-in;
+    transition: border 0.1s ease-in;
 
     &:focus {
-      outline: 1px solid $gray-text;
+      border: 1px solid $dark-text;
     }
   }
 
   .iconClose {
     position: absolute;
-    right: 34px;
+    right: 60px;
     top: 23px;
     cursor: pointer;
+    transition: all 0.1s ease-in;
+
+    &:hover {
+      scale: 1.2;
+    }
   }
 }

@@ -12,14 +12,17 @@ export const Search: FC = () => {
     setSearchValue(value);
   };
 
+  const onSubmit = (event: ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   const clearInput = () => {
     setSearchValue("");
     inputRef.current?.focus();
   };
 
   return (
-    <div className={styles.search}>
-      <IoSearch className={styles.icon} />
+    <form className={styles.search} name="search" onSubmit={onSubmit}>
       <input
         className={styles.input}
         ref={inputRef}
@@ -31,6 +34,7 @@ export const Search: FC = () => {
       {searchValue && (
         <IoClose className={styles.iconClose} onClick={clearInput} />
       )}
-    </div>
+      <IoSearch className={styles.icon} />
+    </form>
   );
 };
