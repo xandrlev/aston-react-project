@@ -2,7 +2,7 @@ import { FC } from "react";
 import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 
-import Spinner from "../../components/Spinner/Spinner";
+import Spinner from "../../components/spinner/Spinner";
 import { useGetHeroesByIdQuery } from "../../store";
 
 import styles from "./Card.module.scss";

@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import { fetchHeroes } from "../../types/fetchTypes";
-import Spinner from "../Spinner/Spinner";
+import Spinner from "../spinner/Spinner";
 
 import styles from "./List.module.scss";
 
