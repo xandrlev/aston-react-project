@@ -18,7 +18,15 @@ export const heroesApi = createApi({
       query: (characterId) =>
         `/${characterId}?&limit=30&offset=82&ts=1&apikey=${API_KEY}&hash=${API_HASH}`,
     }),
+    getHeroesSearch: builder.query<fetchData, string>({
+      query: (name) =>
+        `?nameStartsWith=${name}&limit=20&ts=1&apikey=${API_KEY}&hash=${API_HASH}`,
+    }),
   }),
 });
 
-export const { useGetHeroesQuery, useGetHeroesByIdQuery } = heroesApi;
+export const {
+  useGetHeroesQuery,
+  useGetHeroesByIdQuery,
+  useGetHeroesSearchQuery,
+} = heroesApi;

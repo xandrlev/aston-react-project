@@ -12,12 +12,16 @@
   color: $gray-text;
   font-size: 14px;
 
-  .icon {
+  .button {
     position: absolute;
     right: 34px;
     top: 23px;
-    cursor: pointer;
+    outline: none;
+    background: none;
+    border: none;
+    color: $gray-text;
     transition: all 0.1s ease-in;
+    cursor: pointer;
 
     &:hover {
       scale: 1.2;
@@ -50,4 +54,47 @@
       scale: 1.2;
     }
   }
+}
+
+// box
+
+.suggest  {
+  z-index: 9;
+  top: 110%;
+  position: absolute;
+  width: calc(100% - 50px);
+  left: 25px;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  background: $black-light;
+  border-radius: 4px;
+  color: $gray-text;
+
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $gray-text;
+
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    &:hover {
+      background-color: $dark-text;
+      color: $white;
+    }
+  }
+}
+
+.box::-webkit-scrollbar {
+  display: none;
 }
