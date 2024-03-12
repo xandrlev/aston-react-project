@@ -2,33 +2,41 @@ import { FC } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
+import { useTheme } from "../../pages/providers/useTheme";
 import { Search } from "../Search";
 
 import styles from "./Header.module.scss";
 
-export const Header: FC = () => (
-  <header className={styles.header}>
-    <div className={styles.container}>
-      <div className={styles.logo}>
-        <Link to="/">
-          <h1 className={styles.logo_text}>MARVEL</h1>
-        </Link>
-      </div>
-      <div className={styles.wrapper}>
-        <Search />
-        <div className={styles.wrapper_login}>
-          <Link className={styles.link} to="/card">
-            Log in
-          </Link>
-          <Link className={styles.link} to="/card">
-            Sign up
+export const Header: FC = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.logo}>
+          <Link to="/">
+            <h1 className={styles.logo_text}>MARVEL</h1>
           </Link>
         </div>
-        <div className={styles.wrapper_icon}>
-          <IoMoon className={styles.icon} />
-          <IoSunny className={styles.icon} />
+        <div className={styles.wrapper}>
+          <Search />
+          <div className={styles.wrapper_login}>
+            <Link className={styles.link} to="/card">
+              Log in
+            </Link>
+            <Link className={styles.link} to="/card">
+              Sign up
+            </Link>
+          </div>
+          <div className={styles.wrapper_icon}>
+            {theme !== "dark" ? (
+              <IoMoon onClick={toggleTheme} className={styles.icon} />
+            ) : (
+              <IoSunny onClick={toggleTheme} className={styles.icon} />
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
