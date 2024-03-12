@@ -12,7 +12,13 @@
 }
 
 body {
-  background-color: $white;
+  background-color: $bg-color-light;
+  color: $text-color-light;
+}
+
+.dark {
+  background-color: $bg-color-dark;
+  color: $text-color-dark;
 }
 
 .container {

@@ -2,7 +2,6 @@
 @import "../../styles/mixins";
 
 .header {
-  // position: fixed;
   height: 60px;
   background-color: $black;
 
@@ -14,10 +13,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 0 25px;
-
-    // @include border-left;
-    // @include border-right;
-
+    
     .logo {
       @include wrapper-flex(center);
 
