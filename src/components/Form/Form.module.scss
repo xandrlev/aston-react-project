@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.container {
+  width: 30vw;
+  min-width: 250px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .input {
+      padding: 10px 20px;
+      outline: none;
+      border: none;
+      background-color: $black-light;
+      color: $gray-text;
+    }
+
+    .submit {
+      padding: 10px 20px;
+      border: none;
+      color: $white;
+      background-color: $red-dark;
+      cursor: pointer;
+    }
+  }
+}

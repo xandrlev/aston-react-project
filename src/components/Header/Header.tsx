@@ -21,10 +21,10 @@ export const Header: FC = () => {
         <div className={styles.wrapper}>
           <Search />
           <div className={styles.wrapper_login}>
-            <Link className={styles.link} to="/card">
+            <Link className={styles.link} to="/login">
               Log in
             </Link>
-            <Link className={styles.link} to="/card">
+            <Link className={styles.link} to="/register">
               Sign up
             </Link>
           </div>
