@@ -9,6 +9,8 @@ import { App } from "./components/App/App.tsx";
 import { ThemeProvider } from "./pages/providers/ThemeProvider.tsx";
 import { store } from "./store/store.ts";
 
+import "./firebase.ts";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider>

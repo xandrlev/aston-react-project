@@ -1,7 +1,9 @@
 import { FC } from "react";
-import { IoMoon, IoSunny } from "react-icons/io5";
+import { IoMoon, IoSunny, IoLogOutSharp, IoBookmark } from "react-icons/io5";
+import { MdWorkHistory } from "react-icons/md";
 import { Link } from "react-router-dom";
 
+import { useAuth } from "../../hooks/useAuth";
 import { useTheme } from "../../pages/providers/useTheme";
 import { Search } from "../Search";
 
@@ -9,6 +11,7 @@ import styles from "./Header.module.scss";
 
 export const Header: FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const { isAuth, logOut } = useAuth();
 
   return (
     <header className={styles.header}>
@@ -20,14 +23,33 @@ export const Header: FC = () => {
         </div>
         <div className={styles.wrapper}>
           <Search />
-          <div className={styles.wrapper_login}>
-            <Link className={styles.link} to="/card">
-              Log in
-            </Link>
-            <Link className={styles.link} to="/card">
-              Sign up
-            </Link>
-          </div>
+
+          <ul className={styles.wrapper_login}>
+            {isAuth ? (
+              <>
+                <li>
+                  <IoLogOutSharp className={styles.icon} onClick={logOut} />
+                </li>
+                <li>
+                  <Link className={styles.icon} to={"/favorites"}>
+                    <IoBookmark />
+                  </Link>
+                </li>
+                <li>
+                  <Link className={styles.icon} to={"/history"}>
+                    <MdWorkHistory />
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link className={styles.link} to="/login">
+                  Log in
+                </Link>
+              </li>
+            )}
+          </ul>
+
           <div className={styles.wrapper_icon}>
             {theme !== "dark" ? (
               <IoMoon onClick={toggleTheme} className={styles.icon} />

@@ -1,0 +1,47 @@
+@import "../../styles/variables";
+
+.container {
+  width: 30vw;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .input {
+      padding: 10px 20px;
+      outline: none;
+      border: none;
+      background-color: $black-light;
+      color: $gray-text;
+    }
+
+    .submit {
+      padding: 10px 20px;
+      border: none;
+      color: $white;
+      background-color: $red-dark;
+      cursor: pointer;
+    }
+  }
+}
+
+.link {
+  font-weight: 500;
+  color: $red;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.2s all ease-in;
+
+  &:hover {
+    color: $gray-text;
+  }
+}
