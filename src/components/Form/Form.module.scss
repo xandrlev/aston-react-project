@@ -3,13 +3,12 @@
 .container {
   width: 30vw;
   min-width: 250px;
-  height: 50vh;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 50px auto;
 
   .form {
     width: 100%;
@@ -32,5 +31,17 @@
       background-color: $red-dark;
       cursor: pointer;
     }
+  }
+}
+
+.link {
+  font-weight: 500;
+  color: $red;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.2s all ease-in;
+
+  &:hover {
+    color: $gray-text;
   }
 }

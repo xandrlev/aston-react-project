@@ -1,20 +1,25 @@
-import { FC, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 
 import styles from "./Form.module.scss";
 
 interface Props {
   title: string;
-  handleClick: () => void;
+  handleClick: (email: string, password: string) => void;
 }
 
 export const Form: FC<Props> = ({ title, handleClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const onSubmit = (event: ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleClick(email, password);
+  };
+
   return (
-    <div className={styles.container}>
+    <form className={styles.container} onSubmit={onSubmit}>
       <h2 className={styles.title}>{title.toUpperCase()}</h2>
-      <form className={styles.form} onClick={() => handleClick()}>
+      <div className={styles.form}>
         <input
           className={styles.input}
           type="email"
@@ -28,7 +33,7 @@ export const Form: FC<Props> = ({ title, handleClick }) => {
           onChange={({ target }) => setPassword(target.value)}
         />
         <button className={styles.submit}>{title}</button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
