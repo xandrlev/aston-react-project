@@ -11,7 +11,7 @@ export const SearchPage = () => {
 
   return (
     <div className="container">
-      <List data={data?.data.results} isLoading={isLoading} />
+      <List data={data} isLoading={isLoading} />
     </div>
   );
 };

@@ -12,22 +12,24 @@ export const useAuth = () => {
   const auth = getAuth();
   const navigate = useNavigate();
 
-  useEffect(
-    () =>
-      onAuthStateChanged(auth, (user) => {
-        setIsLoading(true);
-        if (user) {
-          setUser({
-            id: user.uid,
-            email: user.email,
-          });
-          setIsAuth(true);
-          setIsLoading(false);
-        }
-      }),
+  useEffect(() => {
+    const onAuth = onAuthStateChanged(auth, (user) => {
+      setIsLoading(true);
+      if (user) {
+        setUser({
+          id: user.uid,
+          email: user.email,
+        });
+        setIsAuth(true);
+        setIsLoading(false);
+      }
+    });
+
+    return () => {
+      onAuth();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+  }, []);
 
   const logOut = () => {
     signOut(auth);

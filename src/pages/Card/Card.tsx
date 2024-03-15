@@ -9,11 +9,15 @@ import styles from "./Card.module.scss";
 
 export const Card: FC = () => {
   const isFavorite = false;
-  const { id = "" } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const { data, isLoading } = useGetHeroesByIdQuery(id);
-  const hero = data?.data.results[0];
+  const { data, isLoading } = useGetHeroesByIdQuery(id ?? "");
+
+  if (!data) {
+    return;
+  }
+  const hero = data[0];
 
   return (
     <div className={styles.container}>

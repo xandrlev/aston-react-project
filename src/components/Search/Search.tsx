@@ -75,7 +75,7 @@ export const Search: FC = () => {
       {searchValue && isSuggest && (
         <Suggest
           isLoading={isLoading}
-          data={data?.data.results}
+          data={data}
           isSuggest={isSuggest}
           setIsSuggest={setIsSuggest}
         />

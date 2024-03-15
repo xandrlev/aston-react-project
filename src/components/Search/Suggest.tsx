@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import { fetchHeroes } from "../../types/fetchTypes";
+import { Heroes } from "../../types/heroes";
 
 import styles from "./Search.module.scss";
 
 interface Props {
   isLoading: boolean;
-  data: fetchHeroes[] | undefined;
+  data?: Heroes[];
   isSuggest: boolean;
   setIsSuggest: (status: boolean) => void;
 }
