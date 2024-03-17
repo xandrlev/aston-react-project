@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { LoginPage, RegisterPage } from "../pages/AuthPage";
 import { Card } from "../pages/Card";
+import { History } from "../pages/History/History";
 import { Home } from "../pages/Home/";
 
 import { NotFound } from "../pages/NotFound";
@@ -18,7 +19,6 @@ export const AppRoutes = () => (
     <Route path="/search" element={<SearchPage />} />
     <Route path="/login" element={<LoginPage />} />
     <Route path="/signup" element={<RegisterPage />} />
-    <Route path="*" element={<NotFound />} />
 
     <Route
       path="/favorites"
@@ -28,13 +28,16 @@ export const AppRoutes = () => (
         </PrivateRoutes>
       }
     />
+
     <Route
       path="/history"
       element={
         <PrivateRoutes>
-          <UserPage />
+          <History />
         </PrivateRoutes>
       }
     />
+
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );

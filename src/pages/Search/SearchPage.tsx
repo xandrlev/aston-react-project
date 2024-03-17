@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import { List } from "../../components/List";
+import Spinner from "../../components/spinner/Spinner";
 import { useGetHeroesSearchQuery } from "../../store";
 
 export const SearchPage = () => {
@@ -11,7 +12,8 @@ export const SearchPage = () => {
 
   return (
     <div className="container">
-      <List data={data?.data.results} isLoading={isLoading} />
+      {isLoading && <Spinner />}
+      <List data={data} isLoading={isLoading} />
     </div>
   );
 };
