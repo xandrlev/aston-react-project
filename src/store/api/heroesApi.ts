@@ -14,7 +14,7 @@ export const heroesApi = createApi({
   reducerPath: "heroesApi",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
-    getHeroes: builder.query<Heroes[], string>({
+    getHeroes: builder.query<Heroes[], void>({
       query: () =>
         `?&limit=20&offset=82&ts=1&apikey=${API_KEY}&hash=${API_HASH}`,
       transformResponse,

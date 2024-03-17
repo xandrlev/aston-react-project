@@ -32,4 +32,9 @@ body {
 
 a {
   text-decoration: none;
+  color: $gray-text;
+
+  &:hover {
+    color: $dark-text;
+  }
 }

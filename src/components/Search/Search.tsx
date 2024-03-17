@@ -4,6 +4,7 @@ import { IoSearch, IoClose } from "react-icons/io5";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { useDebounce } from "../../hooks/useDebounce";
+import { useHistory } from "../../hooks/useHistory";
 import { useGetHeroesSearchQuery } from "../../store";
 
 import styles from "./Search.module.scss";
@@ -15,6 +16,7 @@ export const Search: FC = () => {
   const [searchValue, setSearchValue] = useState(searchQuery);
   const [isSuggest, setIsSuggest] = useState(true);
   const navigate = useNavigate();
+  const { saveHistory } = useHistory();
 
   const debounce = useDebounce(searchValue);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -32,6 +34,7 @@ export const Search: FC = () => {
     if (searchValue) {
       setSearchParams({ query: searchValue });
       const queryUrl = `/search?query=${searchValue}`;
+      saveHistory(searchValue);
       navigate(queryUrl);
     }
   };
