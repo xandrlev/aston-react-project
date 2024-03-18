@@ -1,10 +1,11 @@
+import { FC } from "react";
 import { useLocation } from "react-router-dom";
 
 import { List } from "../../components/List";
 import Spinner from "../../components/spinner/Spinner";
 import { useGetHeroesSearchQuery } from "../../store";
 
-export const SearchPage = () => {
+export const SearchPage: FC = () => {
   const { search: searchParams } = useLocation();
   const query = new URLSearchParams(searchParams).get("query") || "";
 

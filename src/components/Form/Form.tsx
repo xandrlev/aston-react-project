@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { ChangeEvent, FC, useState } from "react";
 
 import styles from "./Form.module.scss";
@@ -36,4 +37,13 @@ export const Form: FC<Props> = ({ title, handleClick }) => {
       </div>
     </form>
   );
+};
+
+Form.propTypes = {
+  title: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
+
+Form.defaultProps = {
+  title: "LogIn or SignUp Form",
 };

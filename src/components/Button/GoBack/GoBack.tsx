@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -23,4 +24,12 @@ export const GoBack: FC<Prop> = ({ title }) => {
       {title.toUpperCase()}
     </button>
   );
+};
+
+GoBack.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
+GoBack.defaultProps = {
+  title: "/",
 };
