@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import Spinner from "../components/spinner/Spinner";
 
 import { PrivateRoutes } from "./PrivateRoutes";
@@ -55,34 +56,36 @@ const NotFound = lazy(() =>
 );
 
 export const AppRoutes = () => (
-  <Suspense fallback={<Spinner />}>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/hero/:id" element={<Card />} />
-      <Route path="/search" element={<SearchPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<RegisterPage />} />
+  <ErrorBoundary>
+    <Suspense fallback={<Spinner />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/hero/:id" element={<Card />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<RegisterPage />} />
 
-      <Route
-        path="/favorites"
-        element={
-          <PrivateRoutes>
-            <Favorite />
-          </PrivateRoutes>
-        }
-      />
+        <Route
+          path="/favorites"
+          element={
+            <PrivateRoutes>
+              <Favorite />
+            </PrivateRoutes>
+          }
+        />
 
-      <Route
-        path="/history"
-        element={
-          <PrivateRoutes>
-            <History />
-          </PrivateRoutes>
-        }
-      />
+        <Route
+          path="/history"
+          element={
+            <PrivateRoutes>
+              <History />
+            </PrivateRoutes>
+          }
+        />
 
-      <Route path="/not-found" element={<NotFound />} />
-      <Route path="*" element={<Navigate to="/not-found" />} />
-    </Routes>
-  </Suspense>
+        <Route path="/not-found" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/not-found" />} />
+      </Routes>
+    </Suspense>
+  </ErrorBoundary>
 );
