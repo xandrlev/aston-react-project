@@ -1,12 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { GoBack } from "../../components/Button/GoBack";
 
-export const NotFound = () => {
-  const navigate = useNavigate();
+import styles from "./NotFound.module.scss";
 
-  return (
-    <div className="container">
-      <div>NotFound</div>
-      <button onClick={() => navigate(-1)}>GO BACK</button>
-    </div>
-  );
-};
+export const NotFound = () => (
+  <div className="container">
+    <img className={styles.image} src="/public/404.png" alt="404" />
+    <h1>PAGE NOT FOUND</h1>
+    <GoBack title="home" />
+  </div>
+);

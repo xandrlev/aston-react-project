@@ -1,0 +1,12 @@
+@import "../../../styles/variables";
+
+.favorite {
+  font-size: 24px;
+  color: $red;
+  cursor: pointer;
+  transition: 0.05s all ease-in;
+
+  &:hover {
+    color: $red-dark;
+  }
+}

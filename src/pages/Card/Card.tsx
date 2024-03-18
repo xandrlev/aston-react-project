@@ -1,16 +1,15 @@
 import { FC } from "react";
-import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
+import { FavoriteButton } from "../../components/Button/Favorite";
+import { GoBack } from "../../components/Button/GoBack";
 import Spinner from "../../components/spinner/Spinner";
 import { useGetHeroesByIdQuery } from "../../store";
 
 import styles from "./Card.module.scss";
 
 export const Card: FC = () => {
-  const isFavorite = false;
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const { data, isLoading } = useGetHeroesByIdQuery(id ?? "");
 
@@ -30,11 +29,7 @@ export const Card: FC = () => {
         <div className={styles.wrapper}>
           <div className={styles.wrapper_title}>
             <h1 className={styles.title}>{hero?.name}</h1>
-            {!isFavorite ? (
-              <IoBookmark className={styles.favorite} />
-            ) : (
-              <IoBookmarkOutline className={styles.favorite} />
-            )}
+            <FavoriteButton />
           </div>
 
           {hero?.description === "" ? (
@@ -43,9 +38,7 @@ export const Card: FC = () => {
             <p className={styles.description}>{hero?.description}</p>
           )}
 
-          <button className={styles.button} onClick={() => navigate(-1)}>
-            GO BACK
-          </button>
+          <GoBack title="go back" />
         </div>
       </div>
     </div>

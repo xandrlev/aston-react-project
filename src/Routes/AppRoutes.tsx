@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import { LoginPage, RegisterPage } from "../pages/AuthPage";
 import { Card } from "../pages/Card";
@@ -38,6 +38,7 @@ export const AppRoutes = () => (
       }
     />
 
-    <Route path="*" element={<NotFound />} />
+    <Route path="/not-found" element={<NotFound />} />
+    <Route path="*" element={<Navigate to="/not-found" />} />
   </Routes>
 );
