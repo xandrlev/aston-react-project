@@ -19,7 +19,6 @@ export const useAuth = () => {
         setUser({
           id: user.uid,
           email: user.email,
-          isAuth: true,
         });
         setIsLoading(false);
         setIsAuth(true);

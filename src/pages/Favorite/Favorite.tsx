@@ -1,7 +1,7 @@
 import Spinner from "../../components/spinner/Spinner";
 import { useAuth } from "../../hooks";
 
-export const UserPage = () => {
+export const Favorite = () => {
   const { email, isAuth } = useAuth();
 
   return (

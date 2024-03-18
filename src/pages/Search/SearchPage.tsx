@@ -13,8 +13,13 @@ export const SearchPage: FC = () => {
 
   return (
     <div className="container">
-      {isLoading && <Spinner />}
-      <List data={data} isLoading={isLoading} />
+      {isLoading ? (
+        <Spinner />
+      ) : data?.length ? (
+        <List data={data} isLoading={isLoading} />
+      ) : (
+        <h2>Nothing found</h2>
+      )}
     </div>
   );
 };
