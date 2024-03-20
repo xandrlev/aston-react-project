@@ -29,7 +29,7 @@ export const Card: FC = () => {
         <div className={styles.wrapper}>
           <div className={styles.wrapper_title}>
             <h1 className={styles.title}>{hero?.name}</h1>
-            <FavoriteButton />
+            <FavoriteButton characterId={hero.id} />
           </div>
 
           {hero?.description === "" ? (

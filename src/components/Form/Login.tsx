@@ -19,6 +19,7 @@ export const LogIn: FC = () => {
         setUser({
           id: user.uid,
           email: user.email,
+          isAuth: true,
         });
         navigate("/");
       })

@@ -3,6 +3,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import { Heroes } from "../../types/heroes";
+import { FavoriteButton } from "../Button/Favorite";
 import Spinner from "../spinner/Spinner";
 
 import styles from "./List.module.scss";
@@ -22,7 +23,10 @@ export const List: FC<Props> = ({ data, isLoading }) => {
       {isLoading && <Spinner />}
       <ul className={styles.list}>
         {data.map((item) => (
-          <li key={item.id}>
+          <li className={styles.card} key={item.id}>
+            <div className={styles.favorite}>
+              <FavoriteButton characterId={item.id} />
+            </div>
             <Link className={styles.card} to={`/hero/${item.id}`}>
               <img
                 className={styles.image}

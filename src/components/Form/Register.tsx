@@ -21,6 +21,7 @@ export const Register: FC = () => {
         setUser({
           id: user.uid,
           email: user.email,
+          isAuth: true,
         });
         navigate("/");
       })

@@ -21,6 +21,13 @@
       transition: transform 0.1s ease-in;
     }
 
+    .favorite {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 2;
+    }
+
     .layout {
       position: absolute;
       width: 100%;

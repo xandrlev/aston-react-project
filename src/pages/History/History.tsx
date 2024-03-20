@@ -24,7 +24,7 @@ export const History: FC = () => {
 
   return (
     <div className="container">
-      <h2>SEARCH HISTORY</h2>
+      <h2 className={styles.title}>SEARCH HISTORY</h2>
       {isLoading ? (
         <Spinner />
       ) : queryHistory.length ? (
@@ -40,7 +40,7 @@ export const History: FC = () => {
           ))}
         </ul>
       ) : (
-        <h2>Nothing found</h2>
+        <h2 className={styles.not_found}>Nothing found</h2>
       )}
     </div>
   );
