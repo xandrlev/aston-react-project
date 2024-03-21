@@ -17,9 +17,9 @@ import { useAuth } from ".";
 
 export const useHistory = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const currentUser = auth.currentUser;
   const [queryHistory, setQueryHistory] = useState<HistoryQuery[]>([]);
   const { email } = useAuth();
+  const currentUser = auth.currentUser;
 
   useEffect(() => {
     const fetchHistory = () => {

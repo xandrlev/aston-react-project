@@ -1,4 +1,10 @@
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -32,6 +38,32 @@ export const useAuth = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const signIn = (email: string, password: string) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        setUser({
+          id: user.uid,
+          email: user.email,
+          isAuth: true,
+        });
+        navigate("/");
+      })
+      .catch((error) => alert(error));
+  };
+
+  const registerUser = (email: string, password: string) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        setUser({
+          id: user.uid,
+          email: user.email,
+          isAuth: true,
+        });
+        navigate("/");
+      })
+      .catch((error) => alert(error));
+  };
+
   const logOut = () => {
     signOut(auth);
     removeUser();
@@ -44,6 +76,8 @@ export const useAuth = () => {
     email,
     isAuth,
     isLoading,
+    signIn,
+    registerUser,
     logOut,
   };
 };

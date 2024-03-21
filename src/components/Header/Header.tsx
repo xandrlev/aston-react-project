@@ -11,7 +11,7 @@ import styles from "./Header.module.scss";
 
 export const Header: FC = () => {
   const { theme, toggleTheme } = useTheme();
-  const { isAuth, logOut } = useAuth();
+  const { isAuth, logOut, isLoading } = useAuth();
 
   return (
     <header className={styles.header}>
@@ -42,11 +42,13 @@ export const Header: FC = () => {
                 </li>
               </>
             ) : (
-              <li>
-                <Link className={styles.link} to="/login">
-                  Log in
-                </Link>
-              </li>
+              isLoading && (
+                <li>
+                  <Link className={styles.link} to="/login">
+                    Log in
+                  </Link>
+                </li>
+              )
             )}
           </ul>
 
