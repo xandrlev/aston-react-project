@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useEffect, useMemo } from "react";
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+} from "react";
 
 import { useSaveGetData } from "../../hooks";
 
@@ -21,12 +27,9 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
     "light",
   );
 
-  const toggleTheme = useMemo(
-    () => () => {
-      setTheme(theme === "light" ? "dark" : "light");
-    },
-    [theme, setTheme],
-  );
+  const toggleTheme = useCallback(() => {
+    setTheme(theme === "light" ? "dark" : "light");
+  }, [theme, setTheme]);
 
   useEffect(() => {
     if (theme === "dark") {
@@ -36,8 +39,13 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
     }
   }, [theme]);
 
+  const contextValue = useMemo(
+    () => ({ theme, toggleTheme }),
+    [theme, toggleTheme],
+  );
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );

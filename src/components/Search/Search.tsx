@@ -54,6 +54,11 @@ export const Search: FC = () => {
     return () => document.removeEventListener("click", closeDropdown);
   }, []);
 
+  useEffect(() => {
+    setSearchValue(searchQuery);
+    setIsSuggest(false);
+  }, [searchQuery, setSearchValue]);
+
   return (
     <form className={styles.search} name="search" onSubmit={onSubmit}>
       <input

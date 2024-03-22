@@ -33,7 +33,7 @@ export const useHistory = () => {
 
         onSnapshot(queryHistory, (coll) => {
           setQueryHistory(
-            coll.docs
+            [...coll.docs]
               .sort((a, b) => b.data().date - a.data().date)
               .map((item) => ({
                 id: item.id,

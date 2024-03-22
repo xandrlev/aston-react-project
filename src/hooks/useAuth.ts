@@ -8,12 +8,14 @@ import {
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { selectUserEmail } from "../store/selectors";
+
 import { useActions, useAppSelector } from ".";
 
 export const useAuth = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isAuth, setIsAuth] = useState(false);
-  const { email } = useAppSelector((state) => state.user);
+  const email = useAppSelector(selectUserEmail);
   const { setUser, removeUser } = useActions();
   const auth = getAuth();
   const navigate = useNavigate();
